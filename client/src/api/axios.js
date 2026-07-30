@@ -2,8 +2,6 @@ import axios from "axios";
 
 // In dev, Vite proxies /api to the Express server (see vite.config.js).
 // In production, set VITE_API_URL to your deployed backend URL.
-import axios from "axios";
-
 const api = axios.create({
   baseURL: `${import.meta.env.VITE_API_URL}/api`,
 });

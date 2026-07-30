@@ -1,4 +1,4 @@
-import Contact from "../models/contactModel.js";
+import Contact from "../models/ContactModel.js";
 import sendEmail from "../utils/sendEmail.js";
 import {
   isValidName,

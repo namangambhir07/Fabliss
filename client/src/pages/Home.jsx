@@ -63,6 +63,7 @@ const Home = () => {
         {error && <div className="form-error-banner">{error}</div>}
 
         <div className="hamper-grid">
+          
           {hampers.map((h) => (
             <ProductCard key={h.slug} hamper={h} />
           ))}

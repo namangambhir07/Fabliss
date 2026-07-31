@@ -24,33 +24,38 @@ router.post("/razorpay/create", protect, async (req, res) => {
   try {
     const { amount } = req.body;
 
-    if (!amount || amount <= 0) {
+    if (!Number.isFinite(Number(amount)) || Number(amount) < 100) {
       return res.status(400).json({
-        message: "Invalid order amount",
+        message: "Minimum order amount is ₹1.00",
       });
     }
 
-    console.log("Razorpay Key:", process.env.RAZORPAY_KEY_ID);
-    console.log(
-      "Secret:",
-      process.env.RAZORPAY_KEY_SECRET ? "FOUND" : "NOT FOUND"
-    );
+    if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_KEY_SECRET) {
+      return res.status(401).json({
+        message: "Razorpay credentials are not configured",
+      });
+    }
 
     const instance = getRazorpayInstance();
 
     const razorpayOrder = await instance.orders.create({
-      amount: Math.round(amount * 100), // Convert to paise
+      amount: Math.round(Number(amount)),
       currency: "INR",
       receipt: generateOrderId(),
     });
 
-    res.json(razorpayOrder);
+    res.json({
+      id: razorpayOrder.id,
+      amount: razorpayOrder.amount,
+      currency: razorpayOrder.currency,
+    });
   } catch (err) {
     console.error("RAZORPAY CREATE ERROR");
     console.error(err);
 
-    res.status(500).json({
-      message: err.message,
+    const status = err.statusCode === 401 ? 401 : 500;
+    res.status(status).json({
+      message: err.error?.description || err.message || "Could not create Razorpay order",
     });
   }
 });
@@ -65,6 +70,12 @@ router.post("/razorpay/verify", protect, async (req, res) => {
       razorpay_payment_id,
       razorpay_signature,
     } = req.body;
+
+    if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature) {
+      return res.status(400).json({
+        message: "Missing payment details",
+      });
+    }
 
     const body = `${razorpay_order_id}|${razorpay_payment_id}`;
 

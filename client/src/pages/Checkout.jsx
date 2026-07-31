@@ -25,7 +25,8 @@ const Checkout = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
 
-  const shipping = subtotal > 0 && subtotal < 1500 ? 99 : 0;
+  // const shipping = subtotal > 0 && subtotal < 1500 ? 99 : 0;
+  const shipping = 0;
   const total = subtotal + shipping;
 
   const [address, setAddress] = useState({
@@ -76,35 +77,52 @@ const Checkout = () => {
       setServerError("Could not load Razorpay. Check your connection and try again.");
       return;
     }
-    const { data: order } = await api.post("/orders/razorpay/create", { amount: total });
 
-    const rzp = new window.Razorpay({
-      key: import.meta.env.VITE_RAZORPAY_KEY_ID,
-      amount: order.amount,
-      currency: order.currency,
-      name: "Fabliss",
-      description: "Gifting Hamper Order",
-      order_id: order.id,
-      prefill: { name: address.fullName, email: address.email, contact: address.phone },
-      theme: { color: "#c97c87" },
-      handler: async (response) => {
-        try {
-          await api.post("/orders/razorpay/verify", {
-            razorpay_order_id: response.razorpay_order_id,
-            razorpay_payment_id: response.razorpay_payment_id,
-            razorpay_signature: response.razorpay_signature,
-          });
-          await placeOrder({
-            razorpayOrderId: response.razorpay_order_id,
-            razorpayPaymentId: response.razorpay_payment_id,
-          });
-        } catch (err) {
-          setServerError("Payment verification failed. If money was deducted, it will be refunded.");
-        }
-      },
-      modal: { ondismiss: () => setPlacing(false) },
-    });
-    rzp.open();
+    const keyId = import.meta.env.VITE_RAZORPAY_KEY_ID;
+    if (!keyId) {
+      setServerError("Razorpay is not configured for this app yet.");
+      return;
+    }
+
+    try {
+      const { data: order } = await api.post("/orders/razorpay/create", { amount: Math.round(total * 100) });
+
+      const rzp = new window.Razorpay({
+        key: keyId,
+        amount: order.amount,
+        currency: order.currency,
+        name: "Fabliss",
+        description: "Gifting Hamper Order",
+        order_id: order.id,
+        prefill: { name: address.fullName, email: address.email, contact: address.phone },
+        theme: { color: "#c97c87" },
+        handler: async (response) => {
+          try {
+            await api.post("/orders/razorpay/verify", {
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+            });
+            await placeOrder({
+              razorpayOrderId: response.razorpay_order_id,
+              razorpayPaymentId: response.razorpay_payment_id,
+            });
+          } catch (err) {
+            setServerError(err.response?.data?.message || "Payment verification failed. If money was deducted, it will be refunded.");
+          }
+        },
+        modal: {
+          ondismiss: () => {
+            setPlacing(false);
+            setServerError("Payment was cancelled. Your order was not placed.");
+          },
+        },
+      });
+      rzp.open();
+    } catch (err) {
+      setServerError(err.response?.data?.message || "Could not start Razorpay checkout.");
+      setPlacing(false);
+    }
   };
 
   const handleSubmit = async (e) => {

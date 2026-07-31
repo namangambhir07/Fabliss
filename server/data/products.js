@@ -6,7 +6,7 @@ export const hampers = [
     slug: "rakhi-special",
     name: "Rakhi Special",
     tagline: "A sweet gift for your sibling",
-    price: 1299,
+    price: 1,
     mrp: 1899,
     image: "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785357389/rakhi_s4o9qk.jpg",
     gallery: [

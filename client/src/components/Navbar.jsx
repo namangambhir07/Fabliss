@@ -4,13 +4,16 @@ import { FaShoppingBag, FaUserCircle, FaBars, FaTimes } from "react-icons/fa";
 import { useCart } from "../context/CartContext.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
 
-const HAMPERS = [
-  {slug: "rakhi-special", name: "Snack Delight Hamper" },
-  {slug: "rakhi-special1", name: "Rakhi Joy Gift Bag" },
-  {slug: "rakhi-special2", name: "Golden Bond Rakhi Hamper" },
-  {slug: "rakhi-special3", name: "Sacred Bond Rakhi Box" },
-  {slug: "rakhi-special4", name: "Royal Sibling Hamper" },
-  {slug: "rakhi-special5", name: "Rakhi Luxe Hamper" },
+const RAKHI_HAMPERS = [
+  { slug: "rakhi-special", name: "Snack Delight Hamper" },
+  { slug: "rakhi-special1", name: "Rakhi Joy Gift Bag" },
+  { slug: "rakhi-special2", name: "Golden Bond Rakhi Hamper" },
+  { slug: "rakhi-special3", name: "Sacred Bond Rakhi Box" },
+  { slug: "rakhi-special4", name: "Royal Sibling Hamper" },
+  { slug: "rakhi-special5", name: "Rakhi Luxe Hamper" },
+];
+
+const OTHER_HAMPERS = [
   { slug: "Festive-Special", name: "Festive Special Hamper" },
   { slug: "bridesmaid", name: "Bridesmaid Hamper" },
   { slug: "The-Little-Indulgence", name: "The Little Indulgence Hamper" },
@@ -23,11 +26,17 @@ const HAMPERS = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [shopOpen, setShopOpen] = useState(false);
+  const [rakhiOpen, setRakhiOpen] = useState(false);
   const { count } = useCart();
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
-  const close = () => setOpen(false);
+  const close = () => {
+    setOpen(false);
+    setShopOpen(false);
+    setRakhiOpen(false);
+  };
 
   return (
     <nav className="navbar" >
@@ -43,13 +52,40 @@ const Navbar = () => {
         <div className={`nav-links ${open ? "open" : ""}`}>
           <NavLink to="/" onClick={close} className={({ isActive }) => (isActive ? "active" : "")}>Home</NavLink>
 
-          <div className="hamper-dropdown">
-            <button className="link-btn">Shop Hampers</button>
-            <div className="hamper-dropdown-menu">
-              {HAMPERS.map((h) => (
+          <div
+            className="hamper-dropdown"
+            onMouseEnter={() => setShopOpen(true)}
+            onMouseLeave={() => setShopOpen(false)}
+          >
+            <button className="link-btn" type="button" onClick={() => setShopOpen((value) => !value)}>
+              Shop
+            </button>
+            <div className={`hamper-dropdown-menu ${shopOpen ? "open" : ""}`}>
+              <div
+                className="submenu-parent"
+                onMouseEnter={() => setRakhiOpen(true)}
+                onMouseLeave={() => setRakhiOpen(false)}
+              >
+                <button
+                  className="dropdown-trigger"
+                  type="button"
+                  onClick={() => setRakhiOpen((value) => !value)}
+                  aria-expanded={rakhiOpen}
+                >
+                  <span>Rakhi Collection</span>
+                  <span className="submenu-arrow">❯</span>
+                </button>
+                <div className={`dropdown-submenu ${rakhiOpen ? "open" : ""}`}>
+                  {RAKHI_HAMPERS.map((h) => (
+                    <Link key={h.slug} to={`/hampers/${h.slug}`} onClick={close}>{h.name}</Link>
+                  ))}
+                </div>
+              </div>
+
+              {OTHER_HAMPERS.map((h) => (
                 <Link key={h.slug} to={`/hampers/${h.slug}`} onClick={close}>{h.name}</Link>
               ))}
-              <Link to="/customise" onClick={close} style={{ color: "var(--rose-deep)" }}>✦ Build Your Own Hamper</Link>
+              <Link to="/customise" onClick={close} className="build-own-link">✦ Build Your Own Hamper</Link>
             </div>
           </div>
           <NavLink to="/customise" onClick={close} className={({ isActive }) => (isActive ? "active" : "")}>Customise</NavLink>

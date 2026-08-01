@@ -5,10 +5,12 @@ import { useCart } from "../context/CartContext.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
 
 const HAMPERS = [
-  {slug: "rakhi-special1", name: "Snack Delight Hamper" },
-  {slug: "rakhi-special2", name: "Sacred Bond Rakhi Box" },
-  {slug: "rakhi-special3", name: "Royal Sibling Hamper" },
-  {slug: "rakhi-special4", name: "Rakhi Luxe Hamper" },
+  {slug: "rakhi-special", name: "Snack Delight Hamper" },
+  {slug: "rakhi-special1", name: "Rakhi Joy Gift Bag" },
+  {slug: "rakhi-special2", name: "Golden Bond Rakhi Hamper" },
+  {slug: "rakhi-special3", name: "Sacred Bond Rakhi Box" },
+  {slug: "rakhi-special4", name: "Royal Sibling Hamper" },
+  {slug: "rakhi-special5", name: "Rakhi Luxe Hamper" },
   { slug: "Festive-Special", name: "Festive Special Hamper" },
   { slug: "bridesmaid", name: "Bridesmaid Hamper" },
   { slug: "The-Little-Indulgence", name: "The Little Indulgence Hamper" },

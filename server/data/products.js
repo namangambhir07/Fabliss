@@ -4,7 +4,7 @@
 export const hampers = [
 
   {
-    slug: "rakhi-special1",
+    slug: "rakhi-special",
     name: "Snack Delight Hamper",
     tagline: "Packed with tasty treats to make every Rakhi celebration sweeter.",
     price: 399,
@@ -20,8 +20,42 @@ export const hampers = [
     items: ["Golden PVC Rope Handle Bag", "Chips Packet", "Paper Boat Lychee Juice", "Tropicana Tetra Juice", "Cadbury Dairy Milk", "Little Hearts Biscuits"],
   },
 
- {
+{
+    slug: "rakhi-special1",
+    name: "Rakhi Joy Gift Bag",
+    tagline: "A cheerful Rakhi gift bag filled with delicious treats, festive surprises, and heartfelt wishes to make your sibling smile.",
+    price: 599,
+    mrp: 999,
+    image: "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785616351/WhatsApp_Image_2026-08-02_at_01.58.17_drtfc0.jpg",
+    gallery: [
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785616351/WhatsApp_Image_2026-08-02_at_01.58.17_drtfc0.jpg",
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785616361/ChatGPT_Image_Aug_2_2026_02_02_22_AM_qeyxaw.png",
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785616351/WhatsApp_Image_2026-08-02_at_01.58.17_drtfc0.jpg",
+    ],
+    description:
+      "Make this Raksha Bandhan unforgettable with a premium gift hamper designed to spread smiles. From indulgent chocolates and crunchy snacks to refreshing beverages and festive keepsakes, every detail is chosen to celebrate the special bond you share with your sibling.",
+    items: ["Golden PVC Rope Handle Bag", "Chips Packet", "Paper Boat Lychee Juice", "Tropicana Tetra Juice", "Cadbury Dairy Milk", "Little Hearts Biscuits"],
+  },
+
+{
     slug: "rakhi-special2",
+    name: "Golden Bond Rakhi Hamper",
+    tagline: "Celebrate the timeless bond of Raksha Bandhan with a thoughtfully curated hamper full of premium snacks.",
+    price: 999,
+    mrp: 1599,
+    image: "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785615931/WhatsApp_Image_2026-08-02_at_01.49.54_yigjb9.jpg",
+    gallery: [
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785615931/WhatsApp_Image_2026-08-02_at_01.49.54_yigjb9.jpg",
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785615982/ChatGPT_Image_Aug_2_2026_01_56_09_AM_o02brf.png",
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785616128/ChatGPT_Image_Aug_2_2026_01_58_38_AM_popfnz.png",
+    ],
+    description:
+      "Make this Raksha Bandhan extra special with a gift that speaks from the heart. A perfect blend of love, indulgence, and memorable keepsakes for your sibling.",
+    items: ["Bhaiya-Bhabhi Combo Evil Eye Rakhi & Pearl Bracelet Lumba Rakhi","Assorted Flavoured Almonds (80g)","Handmade Chocolate Bites (6 Pieces)","Roli Chawal Bottle Set","Shagun Envelope","Rakhi Box"],
+  },
+
+ {
+    slug: "rakhi-special3",
     name: "Sacred Bond Rakhi Box",
     tagline: "Celebrate timeless sibling bonds with love, tradition, and thoughtful gifts.",
     price: 999,
@@ -38,7 +72,7 @@ export const hampers = [
   },
 
  {
-    slug: "rakhi-special3",
+    slug: "rakhi-special4",
     name: "Royal Sibling Hamper",
     tagline: "An elegant hamper crafted to make your sibling feel truly cherished.",
     price: 1299,
@@ -55,7 +89,7 @@ export const hampers = [
   },
 
   {
-    slug: "rakhi-special4",
+    slug: "rakhi-special5",
     name: "Rakhi Luxe Hamper",
     tagline: "Luxury, love, and festive joy beautifully wrapped in one unforgettable gift.",
     price: 1499,

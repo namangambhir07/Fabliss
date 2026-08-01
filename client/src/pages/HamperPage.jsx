@@ -8,7 +8,7 @@ const HamperPage = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const { addItem } = useCart();
-  const { requireAuth } = useAuth();
+  const { requireAuth, user } = useAuth();
 
   const [hamper, setHamper] = useState(null);
   const [activeImg, setActiveImg] = useState(0);
@@ -32,17 +32,33 @@ const HamperPage = () => {
 
   const discount = Math.round(((hamper.mrp - hamper.price) / hamper.mrp) * 100);
 
+  const itemPayload = {
+    id: `hamper-${hamper.slug}`,
+    name: hamper.name,
+    price: hamper.price,
+    image: hamper.image,
+    qty,
+    meta: "Fixed Hamper",
+  };
+
   const handleAddToCart = () => {
-    requireAuth(() => {
-      addItem({
-        id: `hamper-${hamper.slug}`,
-        name: hamper.name,
-        price: hamper.price,
-        image: hamper.image,
-        qty,
-        meta: "Fixed Hamper",
-      });
-      setAdded(true);
+    addItem(itemPayload);
+    setAdded(true);
+  };
+
+  const handleBuyNow = () => {
+    if (user) {
+      addItem(itemPayload);
+      navigate("/checkout");
+      return;
+    }
+
+    requireAuth({
+      action: () => {
+        addItem(itemPayload);
+        navigate("/checkout");
+      },
+      redirectTo: "/checkout",
     });
   };
 
@@ -88,7 +104,7 @@ const HamperPage = () => {
 
           <div className="hamper-actions">
             <button className="btn btn-primary" onClick={handleAddToCart}>{added ? "Added ✓" : "Add to Cart"}</button>
-            <button className="btn btn-dark" onClick={() => { handleAddToCart(); navigate("/cart"); }}>Buy Now</button>
+            <button className="btn btn-dark" onClick={handleBuyNow}>Buy Now</button>
           </div>
 
           <div className="delivery-note">

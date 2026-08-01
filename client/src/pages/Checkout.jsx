@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
@@ -22,10 +22,9 @@ const loadRazorpayScript = () =>
 
 const Checkout = () => {
   const { items, subtotal, clearCart } = useCart();
-  const { user } = useAuth();
+  const { user, requireAuth } = useAuth();
   const navigate = useNavigate();
 
-  // const shipping = subtotal > 0 && subtotal < 1500 ? 99 : 0;
   const shipping = 0;
   const total = subtotal + shipping;
 
@@ -42,6 +41,15 @@ const Checkout = () => {
   const [errors, setErrors] = useState({});
   const [serverError, setServerError] = useState("");
   const [placing, setPlacing] = useState(false);
+
+  useEffect(() => {
+    setAddress((prev) => ({
+      ...prev,
+      fullName: user?.name || prev.fullName,
+      phone: user?.phone || prev.phone,
+      email: user?.email || prev.email,
+    }));
+  }, [user]);
 
   const validate = () => {
     const e = {};
@@ -125,11 +133,19 @@ const Checkout = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const submitOrder = async (options = {}) => {
+    if (!user && !options.skipAuth) {
+      requireAuth({
+        action: () => submitOrder({ skipAuth: true }),
+        redirectTo: "/checkout",
+      });
+      return;
+    }
+
     setServerError("");
     if (!validate()) return;
     setPlacing(true);
+
     try {
       if (paymentMethod === "razorpay") {
         await handleRazorpayPay();
@@ -141,6 +157,11 @@ const Checkout = () => {
     } finally {
       setPlacing(false);
     }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    submitOrder();
   };
 
   if (items.length === 0) {
@@ -202,18 +223,18 @@ const Checkout = () => {
 
           <div className="checkout-card">
             <h3>Payment Method</h3>
-            <div className={`payment-option ${paymentMethod === "cod" ? "selected" : ""}`} onClick={() => setPaymentMethod("cod")}>
-              <input type="radio" checked={paymentMethod === "cod"} onChange={() => setPaymentMethod("cod")} />
-              <div>
+            {/* <div className={`payment-option ${paymentMethod === "cod" ? "selected" : ""}`} onClick={() => setPaymentMethod("cod")}>
+              <input type="radio" checked={paymentMethod === "cod"} onChange={() => setPaymentMethod("cod")} /> */}
+              {/* <div>
                 <div className="label">Cash on Delivery</div>
                 <div className="sub">Pay in cash when your hamper arrives</div>
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
             <div className={`payment-option ${paymentMethod === "razorpay" ? "selected" : ""}`} onClick={() => setPaymentMethod("razorpay")}>
               <input type="radio" checked={paymentMethod === "razorpay"} onChange={() => setPaymentMethod("razorpay")} />
               <div>
                 <div className="label">Pay Online</div>
-                <div className="sub">UPI, cards & netbanking via Razorpay</div>
+                <div className="sub">via Razorpay</div>
               </div>
             </div>
           </div>

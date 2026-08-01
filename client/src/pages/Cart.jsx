@@ -1,11 +1,17 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext.jsx";
+import { useAuth } from "../context/AuthContext.jsx";
 
 const Cart = () => {
   const { items, removeItem, updateQty, subtotal } = useCart();
+  const { requireAuth } = useAuth();
   const navigate = useNavigate();
   const shipping = subtotal > 0 && subtotal < 1500 ? 99 : 0;
+
+  const handleProceedToCheckout = () => {
+    requireAuth({ redirectTo: "/checkout" });
+  };
 
   if (items.length === 0) {
     return (
@@ -52,7 +58,7 @@ const Cart = () => {
           <div className="summary-line"><span>Subtotal</span><span>₹{subtotal.toLocaleString("en-IN")}</span></div>
           <div className="summary-line"><span>Shipping</span><span>{shipping === 0 ? "Free" : `₹${shipping}`}</span></div>
           <div className="summary-total"><span>Total</span><span>₹{(subtotal + shipping).toLocaleString("en-IN")}</span></div>
-          <button className="btn btn-primary btn-full" onClick={() => navigate("/checkout")}>Proceed to Checkout</button>
+          <button className="btn btn-primary btn-full" onClick={handleProceedToCheckout}>Proceed to Checkout</button>
           <p style={{ fontSize: "0.78rem", textAlign: "center", marginTop: 14 }}>
             Delivery only within Delhi NCR &middot; No refund & return
           </p>

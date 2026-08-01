@@ -5,15 +5,17 @@ import { useCart } from "../context/CartContext.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
 
 const HAMPERS = [
-  {slug: "rakhi-special", name: "Rakhi Special" },
-  {slug: "rakhi-special1", name: "Rakhi Special" },
+  {slug: "rakhi-special1", name: "Snack Delight Hamper" },
+  {slug: "rakhi-special2", name: "Sacred Bond Rakhi Box" },
+  {slug: "rakhi-special3", name: "Royal Sibling Hamper" },
+  {slug: "rakhi-special4", name: "Rakhi Luxe Hamper" },
+  { slug: "Festive-Special", name: "Festive Special Hamper" },
+  { slug: "bridesmaid", name: "Bridesmaid Hamper" },
+  { slug: "The-Little-Indulgence", name: "The Little Indulgence Hamper" },
+  { slug: "coffee-therapy", name: "Coffee Therapy" },
   { slug: "housewarming", name: "Housewarming Hamper" },
   { slug: "baby-celebration", name: "Baby Girl Shower Hamper" },
-  { slug: "coffee-therapy", name: "Coffee Therapy" },
   { slug: "baby-shower", name: "Baby Boy Shower Hamper" },
-  { slug: "bridesmaid", name: "Bridesmaid Hamper" },
-  { slug: "Festive-Special", name: "Festive Special Hamper" },
-  { slug: "The-Little-Indulgence", name: "The Little Indulgence Hamper" },
   { slug: "Just-for-you", name: "Just for You Hamper" },
 ];
 

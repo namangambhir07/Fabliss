@@ -39,36 +39,19 @@ const AuthModal = ({ inline = false }) => {
     setServerError("");
     if (!validate()) return;
     setLoading(true);
+
     try {
-  if (isSignup) {
-    await signup(form);
+      if (isSignup) {
+        await signup(form);
+        setForm({ name: "", email: "", phone: "", password: "" });
+        setAuthModalTab("login");
+      } else {
+        await login(form.email, form.password);
+      }
 
-    // Clear the form
-    setForm({
-      name: "",
-      email: "",
-      phone: "",
-      password: "",
-    });
-
-    // Switch to login mode
-    setAuthModalTab("login");
-
-    // Redirect to login page
-    navigate("/login");
-
-    return;
-  }
-
-  // Login
-  await login(form.email, form.password);
-
-  onAuthSuccess();
-
-  // Redirect to Home page
-  navigate("/");
-
-} catch (err) {
+      const redirectTo = onAuthSuccess();
+      navigate(redirectTo || "/");
+    } catch (err) {
       setServerError(err.response?.data?.message || "Something went wrong. Please try again.");
     } finally {
       setLoading(false);

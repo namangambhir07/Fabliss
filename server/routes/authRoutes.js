@@ -9,10 +9,32 @@ const router = express.Router();
 const signToken = (id) =>
   jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "30d" });
 
+const mergeCartItems = (guestItems = [], savedItems = []) => {
+  const merged = [...savedItems];
+
+  guestItems.forEach((guestItem) => {
+    const existing = merged.find((item) => item.id === guestItem.id);
+    if (existing) {
+      existing.qty += Number(guestItem.qty) || 1;
+      return;
+    }
+    merged.push({
+      id: guestItem.id,
+      name: guestItem.name,
+      price: Number(guestItem.price) || 0,
+      image: guestItem.image || "",
+      qty: Number(guestItem.qty) || 1,
+      meta: guestItem.meta || "",
+    });
+  });
+
+  return merged;
+};
+
 // POST /api/auth/signup
 router.post("/signup", async (req, res) => {
   try {
-    const { name, email, phone, password } = req.body;
+    const { name, email, phone, password, cart = [] } = req.body;
 
     if (!isValidName(name || ""))
       return res.status(400).json({ message: "Please enter a valid name (letters only, 2-40 characters)" });
@@ -28,11 +50,18 @@ router.post("/signup", async (req, res) => {
       return res.status(409).json({ message: "An account with this email or phone already exists" });
 
     const hashed = await bcrypt.hash(password, 10);
-    const user = await User.create({ name, email, phone, password: hashed });
+    const user = await User.create({
+      name,
+      email,
+      phone,
+      password: hashed,
+      cart: Array.isArray(cart) ? cart : [],
+    });
 
     res.status(201).json({
       token: signToken(user._id),
       user: { id: user._id, name: user.name, email: user.email, phone: user.phone },
+      cart: user.cart,
     });
   } catch (err) {
     res.status(500).json({ message: "Something went wrong while creating your account" });
@@ -42,7 +71,7 @@ router.post("/signup", async (req, res) => {
 // POST /api/auth/login
 router.post("/login", async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, password, cart = [] } = req.body;
     if (!isValidEmail(email || ""))
       return res.status(400).json({ message: "Please enter a valid email address" });
 
@@ -52,9 +81,14 @@ router.post("/login", async (req, res) => {
     const match = await bcrypt.compare(password || "", user.password);
     if (!match) return res.status(401).json({ message: "Invalid email or password" });
 
+    const mergedCart = mergeCartItems(Array.isArray(cart) ? cart : [], user.cart || []);
+    user.cart = mergedCart;
+    await user.save();
+
     res.json({
       token: signToken(user._id),
       user: { id: user._id, name: user.name, email: user.email, phone: user.phone },
+      cart: user.cart,
     });
   } catch (err) {
     res.status(500).json({ message: "Something went wrong while logging in" });

@@ -2,28 +2,29 @@
 // Images are hotlinked from Unsplash "source" style placeholders for this draft.
 
 export const hampers = [
+
   {
-    slug: "rakhi-special",
-    name: "Rakhi Special",
-    tagline: "A sweet gift for your sibling",
-    price: 1,
-    mrp: 1899,
-    image: "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785357389/rakhi_s4o9qk.jpg",
+    slug: "rakhi-special1",
+    name: "Snack Delight Hamper",
+    tagline: "Packed with tasty treats to make every Rakhi celebration sweeter.",
+    price: 399,
+    mrp: 799,
+    image: "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785611121/WhatsApp_Image_2026-08-01_at_21.43.12_yzdxun.jpg",
     gallery: [
-      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785357389/rakhi_s4o9qk.jpg",
-      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785357395/ChatGPT_Image_Jul_30_2026_02_06_10_AM_lnyggz.png",
-      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785357432/ChatGPT_Image_Jul_30_2026_02_07_03_AM_npzdco.png",
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785611121/WhatsApp_Image_2026-08-01_at_21.43.12_yzdxun.jpg",
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785611169/ChatGPT_Image_Aug_2_2026_12_35_49_AM_oldge0.png",
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785611210/ChatGPT_Image_Aug_2_2026_12_36_40_AM_faihkq.png",
     ],
     description:
-      "Make this Raksha Bandhan extra special with a gift that speaks from the heart. A perfect blend of love, indulgence, and memorable keepsakes for your sibling.",
-    items: ["Beautiful Pink Rope Basket with Customised Raksha Bandhan Tag","Raksha Bandhan Printed Mug","Sunflower Crochet Charm","Choice of Enamel Earrings","Heart Drop Beaded Pink Bracelet","Love Earth's Lipstick Set of 3","KitKat Chocolate","Dark Fantasy Cookies","80g of Flavoured Coated Almonds (Rose Petals / Malai Rabri / Tiramisu)"],
+      "Make this Raksha Bandhan unforgettable with a premium gift hamper designed to spread smiles. From indulgent chocolates and crunchy snacks to refreshing beverages and festive keepsakes, every detail is chosen to celebrate the special bond you share with your sibling.",
+    items: ["Golden PVC Rope Handle Bag", "Chips Packet", "Paper Boat Lychee Juice", "Tropicana Tetra Juice", "Cadbury Dairy Milk", "Little Hearts Biscuits"],
   },
 
-    {
-    slug: "rakhi-special1",
-    name: "Rakhi Special",
-    tagline: "A heartfelt gift for your sibling",
-    price: 1099,
+ {
+    slug: "rakhi-special2",
+    name: "Sacred Bond Rakhi Box",
+    tagline: "Celebrate timeless sibling bonds with love, tradition, and thoughtful gifts.",
+    price: 999,
     mrp: 1599,
     image: "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785398036/WhatsApp_Image_2026-07-30_at_02.36.27_gammou.jpg",
     gallery: [
@@ -35,6 +36,110 @@ export const hampers = [
       "Make this Raksha Bandhan extra special with a gift that speaks from the heart. A perfect blend of love, indulgence, and memorable keepsakes for your sibling.",
     items: ["Bhaiya-Bhabhi Combo Evil Eye Rakhi & Pearl Bracelet Lumba Rakhi","Assorted Flavoured Almonds (80g)","Handmade Chocolate Bites (6 Pieces)","Roli Chawal Bottle Set","Shagun Envelope","Rakhi Box"],
   },
+
+ {
+    slug: "rakhi-special3",
+    name: "Royal Sibling Hamper",
+    tagline: "An elegant hamper crafted to make your sibling feel truly cherished.",
+    price: 1299,
+    mrp: 1899,
+    image: "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785357389/rakhi_s4o9qk.jpg",
+    gallery: [
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785357389/rakhi_s4o9qk.jpg",
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785357395/ChatGPT_Image_Jul_30_2026_02_06_10_AM_lnyggz.png",
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785357432/ChatGPT_Image_Jul_30_2026_02_07_03_AM_npzdco.png",
+    ],
+    description:
+      "Make this Raksha Bandhan extra special with a gift that speaks from the heart. A perfect blend of love, indulgence, and memorable keepsakes for your sibling.",
+    items: ["Beautiful Pink Rope Basket with Customised Raksha Bandhan Tag","Raksha Bandhan Printed Mug","Sunflower Crochet Charm","Choice of Enamel Earrings","Heart Drop Beaded Pink      Bracelet","Love Earth's Lipstick Set of 3","KitKat Chocolate","Dark Fantasy Cookies","80g of Flavoured Coated Almonds (Rose Petals / Malai Rabri / Tiramisu)"],
+  },
+
+  {
+    slug: "rakhi-special4",
+    name: "Rakhi Luxe Hamper",
+    tagline: "Luxury, love, and festive joy beautifully wrapped in one unforgettable gift.",
+    price: 1499,
+    mrp: 1999,
+    image: "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785613232/WhatsApp_Image_2026-08-02_at_00.57.41_tnxn3p.jpg",
+    gallery: [
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785613230/WhatsApp_Image_2026-08-02_at_00.22.42_gbdsis.jpg",
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785613232/WhatsApp_Image_2026-08-02_at_00.57.41_tnxn3p.jpg",
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785613206/ChatGPT_Image_Aug_2_2026_01_09_54_AM_adpuq0.png",
+    ],
+    description:
+      "Celebrate the timeless bond of Raksha Bandhan with the Fabliss Premium Hamper. Thoughtfully curated with elegant keepsakes, gourmet treats, and festive essentials to make your sibling feel truly special.",
+    items: ["Pearl Beaded Handle Designer Glass Sipper", "Love Heart Pillar Scented Candle (Vanilla)", "200g Assorted Almonds", "Millet Cookies Box (Tutti Fruity / Chocolate / Ajwain / Oats & Raisins)", "50g Freshly Ground Coffee", "Claw Clip", "Premium Traditional Pink Printed Jute Potli", "Premium Rakhi", "Roli Chawal", "Gold Foil Shagun Envelope"],
+  },
+
+
+{
+    slug: "Festive-Special",
+    name: "Festive Special Hamper",
+    tagline: "Celebrate the season with joy",
+    price: 1099,
+    mrp: 1599,
+    image: "https://res.cloudinary.com/dkjmrkraw/image/upload/v1784923141/festival_gf3i7k.jpg",
+    gallery: [
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1784923141/festival_gf3i7k.jpg",
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785347071/ChatGPT_Image_Jul_29_2026_11_14_07_PM_p74prk.png",
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785347072/Gemini_Generated_Image_my7ej2my7ej2my7e_nhnqbs.png",
+    ],
+    description:
+      "Celebrate every special moment with an elegant gift box filled with gourmet treats and timeless floral charm, crafted to leave a lasting impression.",
+    items: ["Floral gold foil printed wooden magnetic lock box with 2 jars","200 gms of flavoured almonds (choice of Tiramisu / Rose Petals / Malai Rabri)","200 gms of coffee raisins"],
+  },
+ 
+{
+    slug: "bridesmaid",
+    name: "Bridesmaid Hamper",
+    tagline: "Celebrating the bride-to-be",
+    price: 1199,
+    mrp: 1899,
+    image: "https://res.cloudinary.com/dkjmrkraw/image/upload/v1784923058/bridemaid_qlbesh.jpg",
+    gallery: [
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1784923058/bridemaid_qlbesh.jpg",
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785177434/ChatGPT_Image_Jul_28_2026_12_06_52_AM_trntpy.png",
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785178561/ChatGPT_Image_Jul_28_2026_12_25_16_AM_gganjz.png",
+    ],
+    description:
+      "Make your bridesmaid proposal unforgettable with this elegant hamper, filled with premium jewelry, sweet treats, a scented candle, and heartfelt detail all beautifully packed with love.",
+    items: ["Anti Tarnish Gold Neckpiece Jewellery Set", "Set of 2 Anti Tarnish Enamel Rings (Choice of Design)", "Love Pillar Heart Scented Candle", "Tissue Towels", "Korean Beaded Charm Bracelet", "Rose Petal Flavoured Almonds", "Bridesmaid Proposal Signage"],
+  },
+
+{
+    slug: "The-Little-Indulgence",
+    name: "The little indulgence - Just for her",
+    tagline: "A thoughtful gift for her",
+    price: 1599,
+    mrp: 2100,
+    image: "https://res.cloudinary.com/dkjmrkraw/image/upload/v1784923897/just_for_her_vyvkwh.jpg",
+    gallery: [
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1784923897/just_for_her_vyvkwh.jpg",
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785354258/ChatGPT_Image_Jul_30_2026_01_14_02_AM_mjeipn.png",
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785354260/Gemini_Generated_Image_44b1g244b1g244b1_fvlos1.png",
+    ],
+    description:
+      "A thoughtful gift for the women who make life beautiful. Curated with premium treats and elegant keepsakes to make every moment feel truly special.",
+    items: ["Anti Tarnish Gold Neckpiece Jewellery Set","Love Pillar/Bubble Heart Scented Candle","Customised Artisanal Chocolate Bar","Pocket Mirror Keychain","Tissue Towels","'Just for Her' Story Card"],
+  },
+   
+{
+    slug: "coffee-therapy",
+    name: "Coffee Therapy",
+    tagline: "Because some feelings need caffeine",
+    price: 1699,
+    mrp: 1999,
+    image: "https://res.cloudinary.com/dkjmrkraw/image/upload/v1784922907/coffee_q0xikt.jpg",
+    gallery: [
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1784922907/coffee_q0xikt.jpg",
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785176708/ChatGPT_Image_Jul_27_2026_11_54_28_PM_k8uowp.png",
+      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785176819/ChatGPT_Image_Jul_27_2026_11_56_46_PM_l1zqqz.png",
+    ],
+    description:
+      "A thoughtfully curated coffee hamper featuring premium coffee, a scented candle, stylish drinkware, cookies, and charming accessories to make every sip memorable.",
+    items: ["50g Freshly Ground Coffee", "Iced Latte/Hazelnut/Caramel Coffee Candle", "Airtight Bubble Glass Tumbler with Glass Straw / Black or White Coffee Mug", "Golden Stirrer Spoon & Straw Cleaner (For Cold Coffee) / Small Golden Teaspoon (As Per Your Choice)", "Cookies", "Coffee Bookmark", "Coffee Story Card", "Pocket Diary", "Baby's Breath Flowers"],
+  },
+
 
   {
     slug: "housewarming",
@@ -68,22 +173,7 @@ export const hampers = [
       "A soft welcome for the newest member of the family organic essentials, a cuddly toy and keepsakes the parents will treasure.",
     items: ["Pram shaped box (Pink, Blue & White)","Romper","Muslin hanky","Socks","Premium Silicone Teether(100% BPA Free)","Baby feet scented hanging wax sachet","Customised story card as per the occasion","Original preserved baby's breath & bunny tail","Customised props for decoration"],
   },
-  {
-    slug: "coffee-therapy",
-    name: "Coffee Therapy",
-    tagline: "Because some feelings need caffeine",
-    price: 1699,
-    mrp: 1999,
-    image: "https://res.cloudinary.com/dkjmrkraw/image/upload/v1784922907/coffee_q0xikt.jpg",
-    gallery: [
-      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1784922907/coffee_q0xikt.jpg",
-      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785176708/ChatGPT_Image_Jul_27_2026_11_54_28_PM_k8uowp.png",
-      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785176819/ChatGPT_Image_Jul_27_2026_11_56_46_PM_l1zqqz.png",
-    ],
-    description:
-      "A thoughtfully curated coffee hamper featuring premium coffee, a scented candle, stylish drinkware, cookies, and charming accessories to make every sip memorable.",
-    items: ["50g Freshly Ground Coffee", "Iced Latte/Hazelnut/Caramel Coffee Candle", "Airtight Bubble Glass Tumbler with Glass Straw / Black or White Coffee Mug", "Golden Stirrer Spoon & Straw Cleaner (For Cold Coffee) / Small Golden Teaspoon (As Per Your Choice)", "Cookies", "Coffee Bookmark", "Coffee Story Card", "Pocket Diary", "Baby's Breath Flowers"],
-  },
+  
    {
     slug: "baby-shower",
     name: "Baby Boy Shower Hamper",
@@ -104,54 +194,9 @@ export const hampers = [
     items: ["Muslin Bib", "Romper", "Muslin hanky", "Socks", "Silicon rattle","Silicon teether","Baby feet candle jar","Baby shower hairband for mom","Customised story card as per the occasion","Original preserved baby’s breath & bunny tail ","Premium steel wired blue pram cart","Customised props for decoration"],
   },
   
-   {
-    slug: "bridesmaid",
-    name: "Bridesmaid Hamper",
-    tagline: "Celebrating the bride-to-be",
-    price: 1199,
-    mrp: 1899,
-    image: "https://res.cloudinary.com/dkjmrkraw/image/upload/v1784923058/bridemaid_qlbesh.jpg",
-    gallery: [
-      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1784923058/bridemaid_qlbesh.jpg",
-      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785177434/ChatGPT_Image_Jul_28_2026_12_06_52_AM_trntpy.png",
-      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785178561/ChatGPT_Image_Jul_28_2026_12_25_16_AM_gganjz.png",
-    ],
-    description:
-      "Make your bridesmaid proposal unforgettable with this elegant hamper, filled with premium jewelry, sweet treats, a scented candle, and heartfelt detail all beautifully packed with love.",
-    items: ["Anti Tarnish Gold Neckpiece Jewellery Set", "Set of 2 Anti Tarnish Enamel Rings (Choice of Design)", "Love Pillar Heart Scented Candle", "Tissue Towels", "Korean Beaded Charm Bracelet", "Rose Petal Flavoured Almonds", "Bridesmaid Proposal Signage"],
-  },
-   {
-    slug: "Festive-Special",
-    name: "Festive Special Hamper",
-    tagline: "Celebrate the season with joy",
-    price: 1099,
-    mrp: 1599,
-    image: "https://res.cloudinary.com/dkjmrkraw/image/upload/v1784923141/festival_gf3i7k.jpg",
-    gallery: [
-      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1784923141/festival_gf3i7k.jpg",
-      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785347071/ChatGPT_Image_Jul_29_2026_11_14_07_PM_p74prk.png",
-      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785347072/Gemini_Generated_Image_my7ej2my7ej2my7e_nhnqbs.png",
-    ],
-    description:
-      "Celebrate every special moment with an elegant gift box filled with gourmet treats and timeless floral charm, crafted to leave a lasting impression.",
-    items: ["Floral gold foil printed wooden magnetic lock box with 2 jars","200 gms of flavoured almonds (choice of Tiramisu / Rose Petals / Malai Rabri)","200 gms of coffee raisins"],
-  },
-   {
-    slug: "The-Little-Indulgence",
-    name: "The little indulgence - Just for her",
-    tagline: "A thoughtful gift for her",
-    price: 1599,
-    mrp: 2100,
-    image: "https://res.cloudinary.com/dkjmrkraw/image/upload/v1784923897/just_for_her_vyvkwh.jpg",
-    gallery: [
-      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1784923897/just_for_her_vyvkwh.jpg",
-      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785354258/ChatGPT_Image_Jul_30_2026_01_14_02_AM_mjeipn.png",
-      "https://res.cloudinary.com/dkjmrkraw/image/upload/v1785354260/Gemini_Generated_Image_44b1g244b1g244b1_fvlos1.png",
-    ],
-    description:
-      "A thoughtful gift for the women who make life beautiful. Curated with premium treats and elegant keepsakes to make every moment feel truly special.",
-    items: ["Anti Tarnish Gold Neckpiece Jewellery Set","Love Pillar/Bubble Heart Scented Candle","Customised Artisanal Chocolate Bar","Pocket Mirror Keychain","Tissue Towels","'Just for Her' Story Card"],
-  },
+   
+   
+   
   {
     slug: "Just-for-you",
     name: "Just For You Hamper",
@@ -169,7 +214,6 @@ export const hampers = [
     items: ["Artisanal Chocolate Bar","Freshly Handmade Cookies (Chocolate / Coconut / Custard)","Premium Jar Scented Candle","Journal","Diary","Printed Temperature-Insulated Mini Bottle","Rose Green Tea (40g)","Masala Chai / Freshly Ground Coffee (40g)","Flavoured Almonds of Choice (30g)","Coffee-Flavoured Raisins (30g)","Customised Story Card & Props with Artificial Flowers","Jute Basket"],
   },
 ];
-
 
 
 export const customCatalogue = {

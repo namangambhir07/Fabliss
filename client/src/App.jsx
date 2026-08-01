@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import WhatsAppButton from "./components/WhatsAppButton.jsx";
 import AuthModal from "./components/AuthModal.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
@@ -28,6 +29,7 @@ function App() {
       <TopBanner />
       <Navbar />
       <AuthModal />
+      <ScrollToTop />
 
       <Routes>
         <Route path="/" element={<Home />} />

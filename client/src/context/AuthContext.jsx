@@ -1,16 +1,29 @@
 import React, { createContext, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../api/axios.js";
 
 const AuthContext = createContext(null);
+const CART_STORAGE_KEY = "fabliss_cart";
+
+const readLocalCart = () => {
+  if (typeof window === "undefined") return [];
+  try {
+    const raw = localStorage.getItem(CART_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return [];
+  }
+};
 
 export const AuthProvider = ({ children }) => {
+  const navigate = useNavigate();
   const [user, setUser] = useState(() => {
     const saved = localStorage.getItem("fabliss_user");
     return saved ? JSON.parse(saved) : null;
   });
   const [authModalOpen, setAuthModalOpen] = useState(false);
-  const [authModalTab, setAuthModalTab] = useState("login"); // "login" | "signup"
-  const [pendingAction, setPendingAction] = useState(null); // fn to run after successful login
+  const [authModalTab, setAuthModalTab] = useState("login");
+  const [pendingAuth, setPendingAuth] = useState(null);
 
   const persistSession = (token, userObj) => {
     localStorage.setItem("fabliss_token", token);
@@ -19,31 +32,44 @@ export const AuthProvider = ({ children }) => {
   };
 
   const login = async (email, password) => {
-    const { data } = await api.post("/auth/login", { email, password });
+    const cart = readLocalCart();
+    const { data } = await api.post("/auth/login", { email, password, cart });
     persistSession(data.token, data.user);
+
+    if (data.cart) {
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(data.cart));
+    }
+
     return data.user;
   };
 
   const signup = async (form) => {
-    const { data } = await api.post("/auth/signup", form);
+    const cart = readLocalCart();
+    const { data } = await api.post("/auth/signup", { ...form, cart });
     persistSession(data.token, data.user);
+
+    if (data.cart) {
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(data.cart));
+    }
+
     return data.user;
   };
 
   const logout = () => {
     localStorage.removeItem("fabliss_token");
     localStorage.removeItem("fabliss_user");
+    setPendingAuth(null);
     setUser(null);
   };
 
-  // Opens the login/signup modal. If an action is passed, it runs automatically
-  // right after a successful login/signup (used by "Add to cart" gating).
-  const requireAuth = (action) => {
+  const requireAuth = (options = {}) => {
     if (user) {
-      action?.();
+      if (options.action) options.action();
+      if (options.redirectTo) navigate(options.redirectTo);
       return true;
     }
-    setPendingAction(() => action || null);
+
+    setPendingAuth({ action: options.action || null, redirectTo: options.redirectTo || null });
     setAuthModalTab("login");
     setAuthModalOpen(true);
     return false;
@@ -51,10 +77,14 @@ export const AuthProvider = ({ children }) => {
 
   const onAuthSuccess = () => {
     setAuthModalOpen(false);
-    if (pendingAction) {
-      pendingAction();
-      setPendingAction(null);
+    const nextAuth = pendingAuth;
+    setPendingAuth(null);
+
+    if (nextAuth?.action) {
+      nextAuth.action();
     }
+
+    return nextAuth?.redirectTo || "/";
   };
 
   return (

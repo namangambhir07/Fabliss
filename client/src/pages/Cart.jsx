@@ -7,7 +7,7 @@ const Cart = () => {
   const { items, removeItem, updateQty, subtotal } = useCart();
   const { requireAuth } = useAuth();
   const navigate = useNavigate();
-  const shipping = subtotal > 0 && subtotal < 1500 ? 99 : 0;
+  const shipping = subtotal > 0 && subtotal < 1500 ? 130 : 99;
 
   const handleProceedToCheckout = () => {
     requireAuth({ redirectTo: "/checkout" });
@@ -56,7 +56,7 @@ const Cart = () => {
         <div className="builder-summary">
           <h3>Order Summary</h3>
           <div className="summary-line"><span>Subtotal</span><span>₹{subtotal.toLocaleString("en-IN")}</span></div>
-          <div className="summary-line"><span>Shipping</span><span>{shipping === 0 ? "Free" : `₹${shipping}`}</span></div>
+          <div className="summary-line"><span>Shipping</span><span>₹{shipping.toLocaleString("en-IN")}</span></div>
           <div className="summary-total"><span>Total</span><span>₹{(subtotal + shipping).toLocaleString("en-IN")}</span></div>
           <button className="btn btn-primary btn-full" onClick={handleProceedToCheckout}>Proceed to Checkout</button>
           <p style={{ fontSize: "0.78rem", textAlign: "center", marginTop: 14 }}>

@@ -25,7 +25,7 @@ const Checkout = () => {
   const { user, requireAuth } = useAuth();
   const navigate = useNavigate();
 
-  const shipping = 0;
+  const shipping = subtotal < 1500 ? 130 : 99;
   const total = subtotal + shipping;
 
   const [address, setAddress] = useState({

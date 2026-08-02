@@ -2,6 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../api/axios.js";
 import ProductCard from "../components/ProductCard.jsx";
+import Seo, {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_TITLE,
+  SITE_URL,
+  buildItemListSchema,
+  buildOrganizationSchema,
+  buildWebsiteSchema,
+} from "../components/Seo.jsx";
 import homepageLogo from "../../assets/homepagelogo.jpeg";
 
 const Home = () => {
@@ -17,8 +25,22 @@ const Home = () => {
       .finally(() => setLoading(false));
   }, []);
 
+  const homeSchema = [
+    buildOrganizationSchema(),
+    buildWebsiteSchema(),
+    buildItemListSchema(hampers),
+  ];
+
   return (
     <div className="page-content">
+      <Seo
+        title={DEFAULT_TITLE}
+        description={DEFAULT_DESCRIPTION}
+        canonicalUrl={SITE_URL}
+        image={`${SITE_URL}/fabliss-logo.png`}
+        type="website"
+        jsonLd={homeSchema}
+      />
       <section className="container hero">
         <div className="hero-copy">
           <span className="eyebrow">Delhi NCR &middot; Curated Gifting</span>

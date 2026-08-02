@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import api from "../api/axios.js";
 import { useCart } from "../context/CartContext.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
+import Seo, { SITE_URL, buildProductSchema } from "../components/Seo.jsx";
 
 const HamperPage = () => {
   const { slug } = useParams();
@@ -62,8 +63,25 @@ const HamperPage = () => {
     });
   };
 
+  const productSeo = {
+    title: `${hamper.name} | Fabliss`,
+    description: hamper.description,
+    canonicalUrl: `${SITE_URL}/hampers/${hamper.slug}`,
+    image: hamper.image || hamper.gallery?.[0] || `${SITE_URL}/fabliss-logo.png`,
+    type: "product",
+    jsonLd: buildProductSchema(hamper),
+  };
+
   return (
     <div className="page-content container">
+      <Seo
+        title={productSeo.title}
+        description={productSeo.description}
+        canonicalUrl={productSeo.canonicalUrl}
+        image={productSeo.image}
+        type={productSeo.type}
+        jsonLd={productSeo.jsonLd}
+      />
       <div className="hamper-detail">
         <div>
           <div className="hamper-gallery-main">

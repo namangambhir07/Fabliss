@@ -5,23 +5,23 @@ import { useCart } from "../context/CartContext.jsx";
 import { useAuth } from "../context/AuthContext.jsx";
 
 const RAKHI_HAMPERS = [
-  { slug: "rakhi-special", name: "Snack Delight Hamper" },
-  { slug: "rakhi-special1", name: "Rakhi Joy Gift Bag" },
-  { slug: "rakhi-special2", name: "Golden Bond Rakhi Hamper" },
-  { slug: "rakhi-special3", name: "Sacred Bond Rakhi Box" },
-  { slug: "rakhi-special4", name: "Royal Sibling Hamper" },
-  { slug: "rakhi-special5", name: "Rakhi Luxe Hamper" },
+  { slug: "snack-delight-hamper", name: "Snack Delight Hamper" },
+  { slug: "rakhi-joy-gift-bag", name: "Rakhi Joy Gift Bag" },
+  { slug: "golden-bond-rakhi-hamper", name: "Golden Bond Rakhi Hamper" },
+  { slug: "sacred-bond-rakhi-box", name: "Sacred Bond Rakhi Box" },
+  { slug: "royal-sibling-hamper", name: "Royal Sibling Hamper" },
+  { slug: "rakhi-luxe-hamper", name: "Rakhi Luxe Hamper" },
 ];
 
 const OTHER_HAMPERS = [
-  { slug: "Festive-Special", name: "Festive Special Hamper" },
+  { slug: "festive-special", name: "Festive Special Hamper" },
   { slug: "bridesmaid", name: "Bridesmaid Hamper" },
-  { slug: "The-Little-Indulgence", name: "The Little Indulgence Hamper" },
+  { slug: "the-little-indulgence", name: "The Little Indulgence Hamper" },
   { slug: "coffee-therapy", name: "Coffee Therapy" },
   { slug: "housewarming", name: "Housewarming Hamper" },
   { slug: "baby-celebration", name: "Baby Girl Shower Hamper" },
   { slug: "baby-shower", name: "Baby Boy Shower Hamper" },
-  { slug: "Just-for-you", name: "Just for You Hamper" },
+  { slug: "just-for-you", name: "Just for You Hamper" },
 ];
 
 const Navbar = () => {

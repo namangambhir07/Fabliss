@@ -4,7 +4,7 @@
 export const hampers = [
 
   {
-    slug: "rakhi-special",
+    slug: "snack-delight-hamper",
     name: "Snack Delight Hamper",
     tagline: "Packed with tasty treats to make every Rakhi celebration sweeter.",
     price: 399,
@@ -21,7 +21,7 @@ export const hampers = [
   },
 
 {
-    slug: "rakhi-special1",
+    slug: "rakhi-joy-gift-bag",
     name: "Rakhi Joy Gift Bag",
     tagline: "A cheerful Rakhi gift bag filled with delicious treats, festive surprises, and heartfelt wishes to make your sibling smile.",
     price: 599,
@@ -38,7 +38,7 @@ export const hampers = [
   },
 
 {
-    slug: "rakhi-special2",
+    slug: "golden-bond-rakhi-hamper",
     name: "Golden Bond Rakhi Hamper",
     tagline: "Celebrate the timeless bond of Raksha Bandhan with a thoughtfully curated hamper full of premium snacks.",
     price: 999,
@@ -55,7 +55,7 @@ export const hampers = [
   },
 
  {
-    slug: "rakhi-special3",
+    slug: "sacred-bond-rakhi-box",
     name: "Sacred Bond Rakhi Box",
     tagline: "Celebrate timeless sibling bonds with love, tradition, and thoughtful gifts.",
     price: 999,
@@ -72,7 +72,7 @@ export const hampers = [
   },
 
  {
-    slug: "rakhi-special4",
+    slug: "royal-sibling-hamper",
     name: "Royal Sibling Hamper",
     tagline: "An elegant hamper crafted to make your sibling feel truly cherished.",
     price: 1299,
@@ -89,7 +89,7 @@ export const hampers = [
   },
 
   {
-    slug: "rakhi-special5",
+    slug: "rakhi-luxe-hamper",
     name: "Rakhi Luxe Hamper",
     tagline: "Luxury, love, and festive joy beautifully wrapped in one unforgettable gift.",
     price: 1499,
@@ -107,7 +107,7 @@ export const hampers = [
 
 
 {
-    slug: "Festive-Special",
+    slug: "festive-special",
     name: "Festive Special Hamper",
     tagline: "Celebrate the season with joy",
     price: 1099,
@@ -141,7 +141,7 @@ export const hampers = [
   },
 
 {
-    slug: "The-Little-Indulgence",
+    slug: "the-little-indulgence",
     name: "The little indulgence - Just for her",
     tagline: "A thoughtful gift for her",
     price: 1599,
@@ -232,7 +232,7 @@ export const hampers = [
    
    
   {
-    slug: "Just-for-you",
+    slug: "just-for-you",
     name: "Just For You Hamper",
     tagline: "A thoughtful gift for someone special",
     price: 2999,

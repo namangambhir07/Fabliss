@@ -1,0 +1,11 @@
+User-agent: *
+
+Allow: /
+
+Disallow: /login
+Disallow: /signup
+Disallow: /cart
+Disallow: /checkout
+Disallow: /order-success
+
+Sitemap: https://www.fabliss.in/sitemap.xml
